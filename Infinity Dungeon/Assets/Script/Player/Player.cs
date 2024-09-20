@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
+    PlayerStat _stat;
     private CharacterController controller;
     private Vector3 MoveDir;
     public GameObject RetryPanel;
@@ -42,6 +43,11 @@ public class Player : MonoBehaviour
         MoveDir = Vector3.zero;
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+    }
+
+    void Init()
+    {
+        _stat = gameObject.GetComponent<PlayerStat>();
     }
     void Start()
     {
@@ -132,7 +138,7 @@ public class Player : MonoBehaviour
 
         // 캐릭터 움직임.
         controller.Move(MoveDir * Time.deltaTime);
-        controller.Move(MoveDir * speed * Time.deltaTime);
+        controller.Move(MoveDir * _stat.Speed * Time.deltaTime);
         animator.SetFloat("Speed", controller.velocity.magnitude);
     }
 

@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-
 using UnityEngine.AI; // Nav Mesh Agent 사용에 필요
 public class BasicEnemy : MonoBehaviour
 {
